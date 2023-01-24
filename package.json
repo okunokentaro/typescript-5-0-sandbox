@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/okunokentaro/typescript-5-0-sandbox/issues"
   },
+  "dependencies": {
+    "prettier": "2.8.3",
+    "typescript": "5.0.0-dev.20230122"
+  },
   "engines": {
     "node": "18.12.1",
     "npm": "8.19.2"
@@ -19,6 +23,11 @@
     "url": "git+https://github.com/okunokentaro/typescript-5-0-sandbox.git"
   },
   "scripts": {
+    "build": "npm run compile:15-legacy; npm run compile:22-legacy; npm run compile:15-tc39; npm run compile:22-tc39; prettier -w .",
+    "compile:15-legacy": "echo \"15-legacy\"; tsc -p ./tsconfig.es2015-exp-deco-true.json",
+    "compile:15-tc39": "echo \"15-tc39\"; tsc -p ./tsconfig.es2015-exp-deco-false.json",
+    "compile:22-legacy": "echo \"22-legacy\"; tsc -p ./tsconfig.es2022-exp-deco-true.json",
+    "compile:22-tc39": "echo \"22-tc39\"; tsc -p ./tsconfig.es2022-exp-deco-false.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
